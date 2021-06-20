@@ -80,7 +80,7 @@ public class Funciones {
             cambios = true;
             // Mientras se intercambie algún elemento 
             while (cambios) {
-                //bo hay cambio aún
+                //no hay cambio aún
                 cambios = false;
                 // se recorre el resto de elementos
                 for (i = salto; i < arreglo.length; i++)   

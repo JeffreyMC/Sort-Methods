@@ -14,7 +14,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Principal extends javax.swing.JFrame {
 
+    //arreglo original con los datos desordenados
     int [] arreglo = new int [1000];
+    //arreglos temporales para pasar por parámetro a los métodos de ordenación
+    int[] temp1 = new int[1000];
+    int[] temp2 = new int[1000];
+    int[] temp3 = new int [1000];
     
     public Principal() {
         initComponents();
@@ -342,7 +347,11 @@ public class Principal extends javax.swing.JFrame {
         
         //se genera el arreglo con números random del 0 al 10000
         for(int i=0; i<arreglo.length; i++){
-            arreglo[i] = rnd.nextInt(10001);
+            int valor = rnd.nextInt(10001);
+            arreglo[i] = valor;
+            temp1[i] = valor; //se llena el arreglo temporal
+            temp2[i] = valor; //se llena el arreglo2 temporal
+            temp3[i] = valor; //se llena el arreglo3 temporal
             dtm.addRow(new Object[]{i, arreglo[i]});
         }
         
@@ -361,25 +370,28 @@ public class Principal extends javax.swing.JFrame {
         long tiempoTotal;
         float total;
         
+           
         //MÉTODO DE BURBUJA
         inicio = System.nanoTime();
-        int[] burbuja = fn.burbuja(arreglo);
+        int[] burbuja = fn.burbuja(temp1);
         tiempoTotal = System.nanoTime()-inicio;
         total = tiempoTotal / 1000.0f;
         txtBurbuja.setText(String.format("%.9f", total));
-        
+ 
+
         //imprime el arreglo ordenado
         DefaultTableModel dtm = (DefaultTableModel) tablaBurbuja.getModel();
         
         for(int i=0; i<arreglo.length; i++){
             dtm.addRow(new Object[]{i, burbuja[i]});
         }
+         
         
         //MÉTODO QUICKSORT
         inicio = System.nanoTime();
         //se llama al método que ordena
-        //se le pasan los parámetros arreglo, índicemás bajo e índice más alto.
-        int[] quick = fn.quickSort(arreglo, 0, arreglo.length-1);
+        //se le pasan los parámetros arreglo, índice más bajo e índice más alto.
+        int[] quick = fn.quickSort(temp2, 0, (temp2.length-1));
         tiempoTotal = System.nanoTime()-inicio;
         total = tiempoTotal / 1000.0f;
         txtQuick.setText(String.format("%.9f", total));
@@ -393,7 +405,7 @@ public class Principal extends javax.swing.JFrame {
         
         //MÉTODO SHELLSORT
         inicio = System.nanoTime();
-        int[] shell = fn.shellSort(arreglo);
+        int[] shell = fn.shellSort(temp3);
         tiempoTotal = System.nanoTime()-inicio;
         total = tiempoTotal / 1000.0f;
         txtShell.setText(String.format("%.9f", total));
