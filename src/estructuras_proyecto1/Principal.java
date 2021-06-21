@@ -368,14 +368,13 @@ public class Principal extends javax.swing.JFrame {
         //variables que medirán el tiempo
         long inicio;
         long tiempoTotal;
-        float total;
+        float total;        
         
-           
         //MÉTODO DE BURBUJA
         inicio = System.nanoTime();
         int[] burbuja = fn.burbuja(temp1);
         tiempoTotal = System.nanoTime()-inicio;
-        total = tiempoTotal / 1000.0f;
+        total = tiempoTotal / 1000000.0f;
         txtBurbuja.setText(String.format("%.9f", total));
  
 
@@ -386,14 +385,13 @@ public class Principal extends javax.swing.JFrame {
             dtm.addRow(new Object[]{i, burbuja[i]});
         }
          
-        
         //MÉTODO QUICKSORT
         inicio = System.nanoTime();
         //se llama al método que ordena
         //se le pasan los parámetros arreglo, índice más bajo e índice más alto.
         int[] quick = fn.quickSort(temp2, 0, (temp2.length-1));
         tiempoTotal = System.nanoTime()-inicio;
-        total = tiempoTotal / 1000.0f;
+        total = tiempoTotal / 1000000.0f;
         txtQuick.setText(String.format("%.9f", total));
         
         //imprime el arreglo ordenado
@@ -407,7 +405,7 @@ public class Principal extends javax.swing.JFrame {
         inicio = System.nanoTime();
         int[] shell = fn.shellSort(temp3);
         tiempoTotal = System.nanoTime()-inicio;
-        total = tiempoTotal / 1000.0f;
+        total = tiempoTotal / 1000000.0f;
         txtShell.setText(String.format("%.9f", total));
         
         //imprime el arreglo ordenado
