@@ -16,10 +16,6 @@ public class Principal extends javax.swing.JFrame {
 
     //arreglo original con los datos desordenados
     int [] arreglo = new int [1000];
-    //arreglos temporales para pasar por parámetro a los métodos de ordenación
-    int[] temp1 = new int[1000];
-    int[] temp2 = new int[1000];
-    int[] temp3 = new int [1000];
     
     public Principal() {
         initComponents();
@@ -349,9 +345,7 @@ public class Principal extends javax.swing.JFrame {
         for(int i=0; i<arreglo.length; i++){
             int valor = rnd.nextInt(10001);
             arreglo[i] = valor;
-            temp1[i] = valor; //se llena el arreglo temporal
-            temp2[i] = valor; //se llena el arreglo2 temporal
-            temp3[i] = valor; //se llena el arreglo3 temporal
+
             dtm.addRow(new Object[]{i, arreglo[i]});
         }
         
@@ -372,7 +366,8 @@ public class Principal extends javax.swing.JFrame {
         
         //MÉTODO DE BURBUJA
         inicio = System.nanoTime();
-        int[] burbuja = fn.burbuja(temp1);
+        //se le pasa por parámetro un clon de arreglo para que no ordene el arreglo original
+        int[] burbuja = fn.burbuja((int[]) arreglo.clone());
         tiempoTotal = System.nanoTime()-inicio;
         total = tiempoTotal / 1000000.0f;
         txtBurbuja.setText(String.format("%.9f", total));
@@ -389,7 +384,7 @@ public class Principal extends javax.swing.JFrame {
         inicio = System.nanoTime();
         //se llama al método que ordena
         //se le pasan los parámetros arreglo, índice más bajo e índice más alto.
-        int[] quick = fn.quickSort(temp2, 0, (temp2.length-1));
+        int[] quick = fn.quickSort((int[])arreglo.clone(), 0, (arreglo.length-1));
         tiempoTotal = System.nanoTime()-inicio;
         total = tiempoTotal / 1000000.0f;
         txtQuick.setText(String.format("%.9f", total));
@@ -403,7 +398,7 @@ public class Principal extends javax.swing.JFrame {
         
         //MÉTODO SHELLSORT
         inicio = System.nanoTime();
-        int[] shell = fn.shellSort(temp3);
+        int[] shell = fn.shellSort((int[])arreglo.clone());
         tiempoTotal = System.nanoTime()-inicio;
         total = tiempoTotal / 1000000.0f;
         txtShell.setText(String.format("%.9f", total));
