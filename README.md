@@ -1,6 +1,6 @@
 # Métodos de ordenación en Java
 
-Este programa ordena un arreglo de 1000 (mil) posiciones con números aleatorios entre el 0 al 10.000 (diez mil).
+Este programa ordena un arreglo de 1000 (mil) posiciones con números REALES aleatorios entre el 0 al 10.000 (diez mil).
 
 ## Métodos de ordenación utilizados
 

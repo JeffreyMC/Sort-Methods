@@ -11,7 +11,7 @@ package estructuras_proyecto1;
  */
 public class Funciones {
     
-    public int [] burbuja(int [] arreglo){
+    public float [] burbuja(float [] arreglo){
         int tamanio = arreglo.length;
         //for externo que recorre todo el arreglo
         for (int i = 0; i < tamanio-1; i++){
@@ -23,7 +23,7 @@ public class Funciones {
                     //se guarda el valor en una variable temporal
                     //se cambian los valores (el valor siguiente será el actual)
                     //y el que era el valor sigiente se le pasa la variable temporal
-                    int temp = arreglo[j];
+                    float temp = arreglo[j];
                     arreglo[j] = arreglo[j+1];
                     arreglo[j+1] = temp;
                 }
@@ -37,7 +37,7 @@ public class Funciones {
     }
     
     //comienza a ordenar de forma recursiva
-    public int [] quickSort(int [] arreglo, int bajo, int alto){
+    public float [] quickSort(float [] arreglo, int bajo, int alto){
          if (bajo < alto) { 
             //obtiene el pivote para comenzar a ordenar
             int pivote = particion(arreglo, bajo, alto); 
@@ -50,30 +50,31 @@ public class Funciones {
          return arreglo;
     }
     
-    public int particion(int[] arreglo, int bajo, int alto){
-        int pivote = arreglo[alto];  
+    public int particion(float[] arreglo, int bajo, int alto){
+        float pivote = arreglo[alto];  
         int i = (bajo-1); // índice del elemento más bajo  
         for (int j=bajo; j<alto; j++) { 
             // verifica que el elemento sea menor o igual al pivote 
             if (arreglo[j] <= pivote) { 
                 i++; 
                 // cambia arreglo[i] por arreglo[j] 
-                int temp = arreglo[i]; 
+                float temp = arreglo[i]; 
                 arreglo[i] = arreglo[j]; 
                 arreglo[j] = temp; 
             } 
         } 
    
         // cambia arreglo[i+1] y arreglo[alto] (o pivote) 
-        int temp = arreglo[i+1]; 
+        float temp = arreglo[i+1]; 
         arreglo[i+1] = arreglo[alto]; 
         arreglo[alto] = temp; 
    
         return i+1; 
     }
     
-    public int [] shellSort(int [] arreglo){
-        int salto, aux, i;
+    public float [] shellSort(float [] arreglo){
+        float aux;
+        int  salto, i;
         boolean cambios;
   
         for (salto = arreglo.length / 2; salto != 0; salto /= 2) {
