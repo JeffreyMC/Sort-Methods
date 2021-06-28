@@ -4,7 +4,7 @@
 <a href="https://twitter.com/JeffreyMC16" alt="Twitter">
         <img src="https://img.shields.io/twitter/follow/JeffreyMC16" /></a>        
 
-<a href="https://github.com/JeffreyMC/Sort-Methods" alt="LICENSE">
+<a href="https://github.com/JeffreyMC/Sort-Methods/blob/main/LICENSE" alt="LICENSE">
         <img src="https://img.shields.io/github/license/JeffreyMC/Sort-Methods" /></a>
 
 # Métodos de ordenación en Java
