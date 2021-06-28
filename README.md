@@ -1,4 +1,5 @@
 ![Twitter Follow](https://img.shields.io/twitter/follow/JeffreyMC16)
+![GitHub](https://img.shields.io/github/license/JeffreyMC/Sort-Methods)
 
 # Métodos de ordenación en Java
 
