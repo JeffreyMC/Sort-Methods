@@ -1,4 +1,5 @@
-
+![GitHub](https://img.shields.io/github/license/JeffreyMC/Sort-Methods?style=for-the-badge)
+![Twitter Follow](https://img.shields.io/twitter/follow/JeffreyMC16)
 # Métodos de ordenación en Java
 
 Este programa ordena un arreglo de 1000 (mil) posiciones con números REALES aleatorios entre el 0 al 10.000 (diez mil).
